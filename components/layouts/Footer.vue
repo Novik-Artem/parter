@@ -39,15 +39,23 @@
 <style lang="scss" module>
 .footer {
   @include container;
-  padding-top: 3.5rem;
   padding-bottom: 3.5rem;
+
+  @include custom(730) {
+    padding-bottom: 2rem;
+  }
+
   .content {
-    padding: 2rem 0 0 0;
+    padding: 3.5rem 0 0 0;
     border-top: 2px solid $gray;
     display: flex;
     justify-content: space-between;
     align-items: start;
     gap: 1rem;
+
+    @include custom(730) {
+      padding-top: 2rem;
+    }
     .columns {
       display: contents;
     }
