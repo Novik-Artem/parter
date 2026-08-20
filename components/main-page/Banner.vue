@@ -22,7 +22,7 @@
   position: relative;
   display: flex;
   align-items: center;
-  overflow: visible;
+  overflow: hidden;
   width: 100%;
   min-height: 100dvh;
 
@@ -73,17 +73,16 @@
 }
 
 .content {
+  @include container;
   position: relative;
   z-index: 2;
-  padding-left: 6.25rem;
-  @include custom(850) {
-    padding-left: 2rem;
-  }
+  width: 100%;
+
   @include custom(650) {
     align-self: flex-start;
-    width: 100%;
-    padding: 10rem 0 0 2rem;
+    padding-top: 10rem;
   }
+
   .title {
     margin: 0;
     font-family: "Scada", system-ui, sans-serif;

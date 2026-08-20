@@ -1,6 +1,11 @@
 <template>
   <section id="contacts" :class="$style.section">
-    <div :class="$style.watermark" aria-hidden="true">ПАРТЕР</div>
+    <img
+      :class="$style.watermark"
+      src="/icons/parter-bg.svg"
+      alt=""
+      aria-hidden="true"
+    />
     <div :class="$style.container">
       <div :class="$style.contacts">
         <h2 :class="$style.title">
@@ -70,7 +75,9 @@
           <img :class="$style.img" src="/icons/phone-yellow.svg" alt="" />
         </div>
         <div :class="$style.text">
-          Наши менеджеры свяжутся с Вами и ответят на все вопросы!
+          Наши менеджеры<br />
+          свяжутся с Вами и<br />
+          ответят на все вопросы!
         </div>
       </div>
     </div>
@@ -129,26 +136,11 @@ const onSubmit = async () => {
   left: 50%;
   top: 50%;
   z-index: 0;
-  transform: translate(-50%, -50%) scaleX(0.52);
-  font-family: "Onest", system-ui, sans-serif;
-  font-weight: 100;
-  font-size: 21.715rem;
-  line-height: 1;
-  letter-spacing: 0.28em;
-  white-space: nowrap;
-  color: transparent;
-  -webkit-text-stroke: 2px $gray;
-  opacity: 0.55;
+  transform: translate(-50%, -50%);
+  width: min(70.75rem, 100%);
+  height: auto;
   pointer-events: none;
   user-select: none;
-
-  @include custom(1400) {
-    font-size: 16rem;
-  }
-
-  @include custom(1100) {
-    font-size: 12rem;
-  }
 
   @include custom(730) {
     display: none;
@@ -161,16 +153,19 @@ const onSubmit = async () => {
   @include container;
   padding-top: 3.5rem;
   padding-bottom: 3.5rem;
-  display: grid;
-  grid-template-columns: 1fr auto 1fr;
-  align-items: start;
-  gap: 2rem;
-  @include custom(960) {
-    grid-template-columns: 1fr 1fr;
-    justify-content: space-between;
+  display: flex;
+  align-items: flex-start;
+  gap: 9.625rem;
+
+  @include custom(1200) {
+    gap: 4rem;
   }
+
+  @include custom(960) {
+    gap: 2rem;
+  }
+
   @include custom(730) {
-    display: flex;
     flex-direction: column;
     gap: 2rem;
     padding-top: 2rem;
@@ -191,13 +186,14 @@ const onSubmit = async () => {
     font-size: 1.5rem;
     text-transform: uppercase;
     position: relative;
+    padding-bottom: 0.5rem;
 
     &::after {
       content: "";
       position: absolute;
       left: 0;
       right: 0;
-      bottom: -0.5rem;
+      top: 100%;
       height: 0.25rem;
       border-radius: 0.25rem;
       background-color: $yellow;
@@ -220,11 +216,22 @@ const onSubmit = async () => {
 }
 
 .contacts {
+  flex: 0 0 auto;
+  width: fit-content;
+
+  .title {
+    white-space: nowrap;
+  }
+
   @include custom(730) {
     width: 100%;
     order: 2;
     padding-top: 2rem;
     padding-bottom: 2rem;
+
+    .title {
+      white-space: normal;
+    }
   }
 }
 
@@ -260,8 +267,8 @@ const onSubmit = async () => {
 
     img {
       display: block;
-      width: 1.375rem;
-      height: 1.375rem;
+      width: 1.25rem;
+      height: 1.25rem;
       filter: brightness(0) invert(1);
       transition: filter 0.3s ease;
     }
@@ -317,7 +324,10 @@ const onSubmit = async () => {
 }
 
 .request {
-  width: 24.5rem;
+  flex: 1 1 auto;
+  width: 34.25rem;
+  max-width: 34.25rem;
+  min-width: 0;
 
   .title {
     margin: 0 0 0.75rem 0;
@@ -387,6 +397,7 @@ const onSubmit = async () => {
 
   @include custom(730) {
     width: 100%;
+    max-width: none;
     order: 1;
 
     .button {
@@ -397,11 +408,11 @@ const onSubmit = async () => {
 }
 
 .info {
-  justify-self: end;
+  flex: 0 0 auto;
   display: flex;
   flex-direction: column;
   align-items: center;
-  max-width: 22rem;
+  width: fit-content;
 
   .icon {
     padding: 1.125rem;
@@ -412,6 +423,7 @@ const onSubmit = async () => {
 
   .text {
     font-size: 2rem;
+    line-height: 1.2;
     color: $white;
     text-align: center;
     @include custom(1100) {

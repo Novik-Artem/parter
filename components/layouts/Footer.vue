@@ -2,7 +2,11 @@
   <footer :class="$style.footer">
     <div :class="$style.content">
       <div :class="$style.logo">
-        <img :class="$style.img" src="/icons/footer-logo.svg" alt="ПАРТЕР 162" />
+        <img
+          :class="$style.img"
+          src="/icons/footer-logo.svg"
+          alt="ПАРТЕР 162"
+        />
       </div>
       <div :class="$style.columns">
         <div :class="$style.column">
@@ -23,7 +27,10 @@
             <a :class="[$style.item, $style.link]" href="#contacts">Контакты</a>
           </div>
         </div>
-        <div :class="$style.author">Разработано компанией Panda’s. Way</div>
+        <div :class="$style.author">
+          Разработано компанией
+          <a href="https://pandasway.pro/" target="_blank">Panda’s. Way</a>
+        </div>
       </div>
     </div>
   </footer>
@@ -75,6 +82,7 @@
         gap: 1rem;
         .item {
           font-size: 1.25rem;
+          line-height: 140%;
           @include custom(1200) {
             font-size: 1rem;
           }

@@ -128,6 +128,7 @@ onUnmounted(() => {
     color: $white;
     position: relative;
     margin: 0 0 2rem 0;
+    padding-bottom: 0.5rem;
 
     @include custom(650) {
       font-size: 1.5rem;
@@ -138,7 +139,7 @@ onUnmounted(() => {
       position: absolute;
       left: 0;
       right: 0;
-      bottom: -0.5rem;
+      top: 100%;
       height: 0.25rem;
       border-radius: 0.25rem;
       background-color: $yellow;
@@ -220,14 +221,9 @@ onUnmounted(() => {
   color: $white;
 
   svg {
-    width: 4.5rem;
-    height: 4.5rem;
+    width: 5.5rem;
+    height: 5.5rem;
     transition: transform 0.3s ease;
-
-    @include custom(650) {
-      width: 3.5rem;
-      height: 3.5rem;
-    }
   }
 
   .card:hover & svg {

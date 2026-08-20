@@ -72,6 +72,7 @@
     text-transform: uppercase;
     color: $white;
     position: relative;
+    padding-bottom: 0.5rem;
     @include custom(650) {
       font-size: 1.5rem;
     }
@@ -80,7 +81,7 @@
       position: absolute;
       left: 0;
       right: 0;
-      bottom: -0.5rem;
+      top: 100%;
       height: 0.25rem;
       border-radius: 0.25rem;
       background-color: $yellow;

@@ -51,7 +51,9 @@ const onLink = (e) => {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: #00000052;
+  border-radius: 0.5rem 0 0 0.5rem;
+  border-left: 1px solid $white;
+  background: rgb(0 0 0 / 32%);
   backdrop-filter: blur(40px);
   -webkit-backdrop-filter: blur(40px);
 
@@ -59,13 +61,13 @@ const onLink = (e) => {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 2rem;
+    gap: 1rem;
     color: $white;
 
     .link {
       cursor: pointer;
       transition: color 0.3s ease;
-
+      font-weight: 600;
       &:hover {
         color: $yellow;
       }
