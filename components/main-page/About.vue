@@ -10,9 +10,9 @@
           <span>Истинно живая музыка и настоящии эмоции!</span>
         </p>
         <div :class="$style.labels">
-          <div :class="$style.label">Свадьба</div>
-          <div :class="$style.label">Юбилей</div>
-          <div :class="$style.label">Другое</div>
+          <a :class="$style.label" href="#request">Свадьба</a>
+          <a :class="$style.label" href="#request">Юбилей</a>
+          <a :class="$style.label" href="#request">Другое</a>
         </div>
       </div>
       <div :class="$style.right">
@@ -88,6 +88,8 @@
     }
   }
   .description {
+    font-weight: 400;
+    line-height: 130%;
     margin: 0;
     color: $white;
     font-size: 1.25rem;
@@ -113,6 +115,12 @@
       border: 2px solid $yellow;
       border-radius: 0.5rem;
       text-align: center;
+      cursor: pointer;
+      background: transparent;
+      transition: background 0.3s ease;
+      &:hover {
+        background: #fbc21d1f;
+      }
       @include custom(650) {
         font-size: 1rem;
       }

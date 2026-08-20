@@ -88,6 +88,19 @@ onUnmounted(() => {
     gap: 2rem;
   }
 
+  .logo {
+    .img {
+      display: block;
+      width: auto;
+      height: auto;
+
+      @include custom(650) {
+        width: 1.25rem;
+        height: 1.875rem;
+      }
+    }
+  }
+
   .menu {
     display: flex;
     align-items: center;
@@ -116,10 +129,28 @@ onUnmounted(() => {
       display: none;
     }
     .contact {
+      display: flex;
+      align-items: center;
+      justify-content: center;
       padding: 0.875rem;
       border: 2px solid $yellow;
       border-radius: 50%;
+      background-color: transparent;
       cursor: pointer;
+      transition: background-color 0.3s ease;
+
+      .img {
+        display: block;
+        transition: filter 0.3s ease;
+      }
+
+      &:hover {
+        background-color: $yellow;
+
+        .img {
+          filter: brightness(0);
+        }
+      }
     }
   }
 }
@@ -157,6 +188,12 @@ onUnmounted(() => {
     background: none;
     cursor: pointer;
     pointer-events: auto;
+
+    img {
+      display: block;
+      width: 1rem;
+      height: 1rem;
+    }
   }
 }
 </style>

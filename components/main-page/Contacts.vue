@@ -59,12 +59,19 @@
             placeholder="Комментарий"
           />
         </div>
-        <button :class="$style.button" type="submit" :disabled="isSubmitting">
-          {{ isSubmitting ? "Отправка..." : "Отправить" }}
+        <button
+          :class="[$style.button, submitSuccess && $style.buttonSuccess]"
+          type="submit"
+          :disabled="isSubmitting || submitSuccess"
+        >
+          <template v-if="submitSuccess">
+            Отправлено
+            <img src="/icons/done.svg" alt="" aria-hidden="true" />
+          </template>
+          <template v-else>
+            {{ isSubmitting ? "Отправка..." : "Отправить" }}
+          </template>
         </button>
-        <p v-if="submitSuccess" :class="$style.status">
-          Заявка отправлена. Мы свяжемся с вами.
-        </p>
         <p v-if="submitError" :class="[$style.status, $style.statusError]">
           {{ submitError }}
         </p>
@@ -94,14 +101,23 @@ const form = reactive({
 const isSubmitting = ref(false);
 const submitError = ref("");
 const submitSuccess = ref(false);
+let successTimer = null;
+
+const resetSuccess = () => {
+  submitSuccess.value = false;
+  if (successTimer) {
+    clearTimeout(successTimer);
+    successTimer = null;
+  }
+};
 
 const onSubmit = async () => {
-  if (isSubmitting.value) return;
+  if (isSubmitting.value || submitSuccess.value) return;
   if (!form.name.trim() || !form.phone.trim()) return;
 
   isSubmitting.value = true;
   submitError.value = "";
-  submitSuccess.value = false;
+  resetSuccess();
 
   try {
     await $fetch("/lead", {
@@ -117,12 +133,24 @@ const onSubmit = async () => {
     form.name = "";
     form.phone = "";
     form.comment = "";
+    successTimer = setTimeout(resetSuccess, 5000);
   } catch {
     submitError.value = "Не удалось отправить заявку. Попробуйте ещё раз.";
   } finally {
     isSubmitting.value = false;
   }
 };
+
+watch(
+  () => [form.name, form.phone, form.comment],
+  ([name, phone, comment]) => {
+    if (submitSuccess.value && (name || phone || comment)) {
+      resetSuccess();
+    }
+  }
+);
+
+onBeforeUnmount(resetSuccess);
 </script>
 
 <style lang="scss" module>
@@ -368,19 +396,37 @@ const onSubmit = async () => {
   }
 
   .button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
     width: fit-content;
     padding: 0.75rem 2rem;
     text-align: center;
     background-color: $yellow;
+    border: none;
     border-radius: 0.5rem;
     font-weight: 700;
     font-size: 1.25rem;
     color: $black;
     font-family: "Scada", system-ui, sans-serif;
     cursor: pointer;
+    transition: background-color 0.3s ease;
+
+    img {
+      display: block;
+      width: 1.125rem;
+      height: auto;
+    }
 
     &:disabled {
       opacity: 0.6;
+      cursor: default;
+    }
+
+    &.buttonSuccess {
+      background-color: $light-gray;
+      opacity: 1;
       cursor: default;
     }
   }
