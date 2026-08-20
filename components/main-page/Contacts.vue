@@ -3,23 +3,25 @@
     <div :class="$style.watermark" aria-hidden="true">ПАРТЕР</div>
     <div :class="$style.container">
       <div :class="$style.contacts">
-        <div :class="[$style.title, $style.desktopTitle]">Свяжитесь с нами</div>
-        <div :class="[$style.title, $style.mobileTitle]">Контакты</div>
+        <h2 :class="$style.title">
+          <span :class="$style.desktopTitle">Свяжитесь с нами</span>
+          <span :class="$style.mobileTitle">Контакты</span>
+        </h2>
         <div :class="$style.list">
-          <a :class="$style.contact" href="tel:+79999999999">
+          <a :class="$style.contact" href="tel:+375333534322">
             <div :class="$style.icon">
-              <img src="/icons/phone-yellow.svg" alt="" />
+              <img src="/icons/phone-yellow.svg" alt="" aria-hidden="true" />
             </div>
-            <div :class="$style.text">+7 (999) 999-99-99</div>
+            <div :class="$style.text">+375 (33) 353-43-22</div>
           </a>
           <a
             :class="$style.contact"
-            href="https://www.instagram.com/parter162?igsh=NzQ3d3pndTg4Zmty"
+            href="https://www.instagram.com/parter162?igsh=MWI2bjNzdjEwODBqdw=="
             target="_blank"
             rel="noopener noreferrer"
           >
             <div :class="$style.icon">
-              <img src="/icons/insta-yellow.svg" alt="" />
+              <img src="/icons/insta-yellow.svg" alt="" aria-hidden="true" />
             </div>
             <div :class="$style.text">@parter162</div>
           </a>
@@ -27,8 +29,10 @@
       </div>
 
       <form id="request" :class="$style.request" @submit.prevent="onSubmit">
-        <div :class="[$style.title, $style.desktopTitle]">Заявка</div>
-        <div :class="[$style.title, $style.mobileTitle]">Оставь заявку</div>
+        <h2 :class="$style.title">
+          <span :class="$style.desktopTitle">Заявка</span>
+          <span :class="$style.mobileTitle">Оставь заявку</span>
+        </h2>
         <div :class="$style.inputs">
           <input
             v-model="form.name"
@@ -175,9 +179,10 @@ const onSubmit = async () => {
 }
 
 .title {
-  font-size: 2rem;
-  color: $white;
   margin: 0 0 2rem 0;
+  font-size: 2rem;
+  font-weight: inherit;
+  color: $white;
   @include custom(1100) {
     font-size: 1.5rem;
   }

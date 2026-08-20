@@ -1,6 +1,6 @@
 <template>
   <div id="works" :class="$style.container">
-    <div :class="$style.title">Мы в деле</div>
+    <h2 :class="$style.title">Мы в деле</h2>
     <div :class="$style.slider">
       <button
         type="button"
@@ -25,7 +25,10 @@
             aria-label="Смотреть"
             @click="active = slide"
           >
-            <img :src="slide.poster" alt="" />
+            <img
+              :src="slide.poster"
+              :alt="`Выступление ПАРТЕР 162 — видео ${slide.id + 1}`"
+            />
             <span :class="$style.play">
               <svg viewBox="0 0 56 56" fill="none" aria-hidden="true">
                 <circle
@@ -120,6 +123,7 @@ onUnmounted(() => {
   .title {
     width: fit-content;
     font-size: 2rem;
+    font-weight: inherit;
     text-transform: uppercase;
     color: $white;
     position: relative;

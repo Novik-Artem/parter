@@ -2,13 +2,13 @@
   <div id="about" :class="$style.container">
     <div :class="$style.inner">
       <div :class="$style.left">
-        <div :class="$style.title">О нас</div>
-        <div :class="$style.description">
+        <h2 :class="$style.title">О нас</h2>
+        <p :class="$style.description">
           Команда, готовая подарить хорошее настроение на вашей свадьбе, юбилее
           и ином угодном событии.
           <br />
           <span>Истинно живая музыка и настоящии эмоции!</span>
-        </div>
+        </p>
         <div :class="$style.labels">
           <div :class="$style.label">Свадьба</div>
           <div :class="$style.label">Юбилей</div>
@@ -16,7 +16,10 @@
         </div>
       </div>
       <div :class="$style.right">
-        <img src="/images/main-page/about.webp" alt="" />
+        <img
+          src="/images/main-page/about.webp"
+          alt="Команда ПАРТЕР 162 на мероприятии"
+        />
       </div>
     </div>
   </div>
@@ -62,8 +65,10 @@
     max-width: 100%;
   }
   .title {
+    margin: 0;
     width: fit-content;
     font-size: 2rem;
+    font-weight: inherit;
     text-transform: uppercase;
     color: $white;
     position: relative;
@@ -82,6 +87,7 @@
     }
   }
   .description {
+    margin: 0;
     color: $white;
     font-size: 1.25rem;
     @include custom(650) {

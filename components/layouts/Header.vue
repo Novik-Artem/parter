@@ -1,7 +1,7 @@
 <template>
   <header :class="$style.header">
     <a :class="$style.logo" href="#top">
-      <img :class="$style.img" src="/icons/logo.svg" alt="logo" />
+      <img :class="$style.img" src="/icons/logo.svg" alt="ПАРТЕР 162" />
     </a>
 
     <nav :class="$style.menu">
@@ -10,28 +10,37 @@
       <a :class="$style.link" href="#contacts">Контакты</a>
     </nav>
     <div :class="$style.contacts">
-      <a :class="$style.contact" href="tel:+79999999999">
-        <img :class="$style.img" src="/icons/phone-yellow.svg" alt="phone" />
+      <a :class="$style.contact" href="tel:+375333534322">
+        <img :class="$style.img" src="/icons/phone-yellow.svg" alt="Позвонить" />
       </a>
       <a
         :class="$style.contact"
-        href="https://www.instagram.com/parter162?igsh=NzQ3d3pndTg4Zmty"
+        href="https://www.instagram.com/parter162?igsh=MWI2bjNzdjEwODBqdw=="
         target="_blank"
         rel="noopener noreferrer"
       >
-        <img :class="$style.img" src="/icons/insta-yellow.svg" alt="insta" />
+        <img
+          :class="$style.img"
+          src="/icons/insta-yellow.svg"
+          alt="Instagram ПАРТЕР 162"
+        />
       </a>
     </div>
   </header>
 
   <div :class="$style.mobile">
-    <a v-show="!isOpen" :class="$style.phone" href="tel:+79999999999">
-      <img src="/icons/phone-white.svg" alt="phone" />
+    <a v-show="!isOpen" :class="$style.phone" href="tel:+375333534322">
+      <img src="/icons/phone-white.svg" alt="Позвонить" />
     </a>
-    <button :class="$style.burger" type="button" @click="isOpen = !isOpen">
+    <button
+      :class="$style.burger"
+      type="button"
+      :aria-label="isOpen ? 'Закрыть меню' : 'Открыть меню'"
+      @click="isOpen = !isOpen"
+    >
       <img
         :src="isOpen ? '/icons/cross-white.svg' : '/icons/burger.svg'"
-        :alt="isOpen ? 'close' : 'menu'"
+        :alt="isOpen ? 'Закрыть меню' : 'Открыть меню'"
       />
     </button>
   </div>

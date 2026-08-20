@@ -2,7 +2,7 @@
   <footer :class="$style.footer">
     <div :class="$style.content">
       <div :class="$style.logo">
-        <img :class="$style.img" src="/icons/footer-logo.svg" alt="logo" />
+        <img :class="$style.img" src="/icons/footer-logo.svg" alt="ПАРТЕР 162" />
       </div>
       <div :class="$style.columns">
         <div :class="$style.column">

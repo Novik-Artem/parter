@@ -3,16 +3,16 @@
     <img
       :class="[$style.img, $style.desktop]"
       src="/images/main-page/banner.webp"
-      alt=""
+      alt="ПАРТЕР 162 — живая музыка на мероприятиях"
     />
     <img
       :class="[$style.img, $style.mobile]"
       src="/images/main-page/banner-mobile.webp"
-      alt=""
+      alt="ПАРТЕР 162 — живая музыка на мероприятиях"
     />
     <div :class="$style.content">
-      <div :class="$style.title">ПАРТЕР 162</div>
-      <div :class="$style.subtitle">СОЗДАЁМ ВОСПОМИНАНИЯ</div>
+      <h1 :class="$style.title">ПАРТЕР 162</h1>
+      <p :class="$style.subtitle">СОЗДАЁМ ВОСПОМИНАНИЯ</p>
     </div>
   </div>
 </template>
@@ -85,6 +85,7 @@
     padding: 10rem 0 0 2rem;
   }
   .title {
+    margin: 0;
     font-family: "Scada", system-ui, sans-serif;
     color: $white;
     font-weight: 700;
@@ -101,6 +102,7 @@
   }
 
   .subtitle {
+    margin: 0;
     color: $yellow;
     font-size: 2.5rem;
     @include custom(650) {
