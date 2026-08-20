@@ -1,0 +1,22 @@
+{
+  "name": "parter",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "nuxt build",
+    "dev": "nuxt dev --port 3000 --host localhost",
+    "dev:clean": "rm -rf .nuxt .output .vite node_modules/.cache node_modules/.vite && nuxt dev --port 3000 --host localhost",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "start": "node .output/server/index.mjs",
+    "postinstall": "nuxt prepare"
+  },
+  "dependencies": {
+    "nuxt": "^3.17.5"
+  },
+  "devDependencies": {
+    "prettier": "^3.9.6",
+    "sass": "^1.93.2",
+    "typescript": "~5.8.0"
+  }
+}

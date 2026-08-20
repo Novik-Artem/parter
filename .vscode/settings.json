@@ -1,0 +1,16 @@
+{
+  "vetur.enable": false,
+  "vetur.validation.template": false,
+  "vetur.validation.script": false,
+  "vetur.validation.style": false,
+  "editor.formatOnSave": true,
+  "[vue]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "emmet.includeLanguages": {
+    "vue": "html",
+    "vue-html": "html"
+  },
+  "emmet.triggerExpansionOnTab": true,
+  "emmet.showAbbreviationSuggestions": true
+}
