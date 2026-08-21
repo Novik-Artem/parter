@@ -48,9 +48,8 @@
       <button
         type="button"
         :class="$style.arrow"
-        :disabled="index >= maxIndex"
         aria-label="Вперёд"
-        @click="index++"
+        @click="goNext"
       >
         <img src="/icons/arrow-right.svg" alt="" />
       </button>
@@ -92,6 +91,10 @@ const index = ref(0);
 const active = ref(null);
 
 const maxIndex = computed(() => Math.max(0, slides.length - visible.value));
+
+const goNext = () => {
+  index.value = index.value >= maxIndex.value ? 0 : index.value + 1;
+};
 
 const syncVisible = () => {
   const w = window.innerWidth;
